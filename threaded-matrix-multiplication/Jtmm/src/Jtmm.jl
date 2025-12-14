@@ -12,7 +12,6 @@ Base.@ccallable function julia_main(::Vector{String})::Int
     @time Threads.@threads for (a, b) in @time zip(matrices...) |> collect
         push!(result, a * b .- a)
     end
-    res
     println(summary(result))
     println(result[begin:5])
 

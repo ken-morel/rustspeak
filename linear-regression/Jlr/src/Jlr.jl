@@ -16,7 +16,6 @@ linear_regression(fn::Function; kw...) = linear_regression(
 
 const LinearRegressionResult{T, N} = Tuple{NTuple{N, T}, T}
 
-precompile(linear_regression, Tuple{})
 function linear_regression(
         fn::LinearFunction{T, N};
         train_size = 1000,
@@ -57,6 +56,7 @@ function linear_regression(
         end
     end
 end
+precompile(linear_regression, Tuple{})
 
 # fn = linear_regression((vals) -> sum(vals .* 2) - 1)
 

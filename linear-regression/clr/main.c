@@ -4,7 +4,7 @@
 
 int main() {
   // train_size is the size of the training data
-  size_t i, train_size = 1;
+  size_t i, train_size;
   printf("Welcome to linear regressor!\n");
   printf("Let's start training the model\n");
   printf("What number of graph points do you have?\n> ");
@@ -18,6 +18,7 @@ int main() {
          train_size);
   for (i = 0; i < train_size; i++) {
     printf("Enter point #%zd> ", i + 1);
+    // the user enters x,y
     scanf("%lf,%lf", &x[i], &y[i]);
   }
   // initial gradient and intercept, you will continuously improve them
@@ -59,7 +60,7 @@ int main() {
       printf("epoch %zd, loss is %.4lf equation is y = %.2lfx + %.2lf\n",
              epoch + 1, sum_errors, gradient, intercept);
     if (sum_errors < 0.000001) {
-      printf("Stopping to train the model because the error reduced alot");
+      printf("Stopping to train the model because the error reduced alot\n");
       break;
     }
   }
